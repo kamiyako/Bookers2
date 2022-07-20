@@ -4,6 +4,9 @@
   <%= image_tag @user.get_profile_image(100,100) %>
   <p>introduction</p>
   <p><%= @user.introduction %></p>
+  <% if @user == current_user %>
+  <p><%= link_to "プロフィール編集", edit_user_path %></p>
+  <% end %>
 </div>
 
 <!-- ユーザーの投稿一覧 -->
@@ -11,7 +14,7 @@
 <% @books.each do |book| %>
 <div>
   <p>image</p>
-  <p><%= image_tag @user.get_profile_image(100,100) %></p>
+  <p><%= image_tag @user.get_profile_image(50,50) %></p>
   <p>name</p>
   <p><%= book.user.name %></p>
 </div>
