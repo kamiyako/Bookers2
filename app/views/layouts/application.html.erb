@@ -12,21 +12,27 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <li>
-        <%= link_to 'マイページ', user_path(current_user.id) %>
-      </li>
-      <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-      <% end %>
+      <h1>
+        <a href="/" class="header-link">Bookers</a>
+      </h1>
+      <nav class="menu">
+        <ul>
+            <% if user_signed_in? %>
+            <li><%= link_to "Home", user_path(current_user.id), class: "header-link" %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, class: "header-link", method: :delete %></li>
+            <% else %>
+            <li><a href="/">Home</a></li>
+            <li><%= link_to "About", about_path, class: "header-link" %></li>
+            <li><%= link_to "Sign up", new_user_registration_path, class: "header-link" %></li>
+            <li><%= link_to "Log in", new_user_session_path, class: "header-link" %></li>
+            <% end %>
+          
+        </ul>
+      </nav>
     </header>
     <%= yield %>
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
   </body>
 </html>

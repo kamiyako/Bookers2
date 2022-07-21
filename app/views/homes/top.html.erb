@@ -1,7 +1,11 @@
 <!--トップページ(ログアウト後もここ)-->
-<h1>welcome to Bookers !!</h1>
-<p>In Bookers,<br>
+<h1>welcome to Bookers !!</h1><br>
+<p>In Bookers,<br>
 you can share and exchange your opinions , inpressions , and emotions<br>
 about various books!</p>
 
+<div class="ls">
+<%= link_to "Log in", new_user_session_path, class:"ls" %><br>
+<%= link_to "Sign up", new_user_registration_path, class: "ls" %>
+</div>
 
