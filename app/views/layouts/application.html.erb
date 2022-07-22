@@ -2,39 +2,71 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/e35a94ee4b.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-      <h1>
-        <a href="/" class="header-link">Bookers</a>
-      </h1>
-      <nav class="menu">
-        <ul>
-            <% if user_signed_in? %>
-            <li><%= link_to "Home", user_path(current_user.id), class: "header-link" %></li>
-            <li><%= link_to "Users", users_path, class: "header-link" %></li>
-            <li><%= link_to "Books", books_path, class: "header-link" %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, class: "header-link", method: :delete %></li>
-            <% else %>
-            <li><a href="/">Home</a></li>
-            <li><%= link_to "About", about_path, class: "header-link" %></li>
-            <li><%= link_to "Sign up", new_user_registration_path, class: "header-link" %></li>
-            <li><%= link_to "Log in", new_user_session_path, class: "header-link" %></li>
-            <% end %>
-          
+
+<!--ヘッダー-->
+    <header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+    <div class="container">
+      <i class="fa-4x fa-book" style="color:orange;"></i>
+      <a class="navbar-brand p-3" href="/">Bookers</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Home", user_path(current_user.id), class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Users", users_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Books', books_path, class: 'nav-link text-dark' %>
+        </li>
+        <i class="fa-solid fa-2x fa-arrow-right-from-bracket" style="color:orange;" ></i>
+        <li class="nav-item">
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", about_path, class: 'nav-link text-dark' %>
+        </li>
+        <i class="fa-solid fa-2x fa-arrow-right-from-bracket" style="color:orange;" ></i>
+        <li class="nav-item">
+          <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
+        </li>
+        <% end %>
         </ul>
-      </nav>
-    </header>
-    <%= yield %>
-    <footer>
-      <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <!--フッター-->
+    <footer class="footer-sm">
+      <div class="container expand-lg">
+        <p class="text-center mt-5">CopyRight Infratop.inc</p>
+      </div>
     </footer>
   </body>
 </html>

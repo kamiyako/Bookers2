@@ -1,11 +1,17 @@
-<!--トップページ(ログアウト後もここ)-->
-<h1>welcome to Bookers !!</h1><br>
-<p>In Bookers,<br>
-you can share and exchange your opinions , inpressions , and emotions<br>
-about various books!</p>
+<!--トップページ-->
+<h1 class="text-center mt-5" >welcome to Bookers !!</h1>
+<p class="text-center mt-5" >In Bookers,</p>
+<p class="text-center" >you can share and exchange your opinions , inpressions , and emotions</p>
+<p class="text-center" >about various books!</p>
 
-<div class="ls">
-<%= link_to "Log in", new_user_session_path, class:"ls" %><br>
-<%= link_to "Sign up", new_user_registration_path, class: "ls" %>
+<!--ボタン-->
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="btn-group">
+      <%= link_to 'Log in', new_user_session_path, class: "btn btn-success" %>
+      <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary" %>
+    </div>
+  </div>
 </div>
+
 

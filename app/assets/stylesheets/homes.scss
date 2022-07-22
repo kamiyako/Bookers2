@@ -1,16 +1,7 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.btn-group {
+  text-decoration:none;
+  color: white;
 }
-
-.ls {	
-  text-decoration: none;
-  color: orange;
-  font-weight: bolder;
-}
-
