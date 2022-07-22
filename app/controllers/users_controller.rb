@@ -17,12 +17,17 @@ class UsersController < ApplicationController
     render :edit
     end
   end
+  
+  def index
+    @users = User.all
+    @users.order("id")
+  end
 
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 
   
