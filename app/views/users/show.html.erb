@@ -9,6 +9,8 @@
   <p><%= link_to "プロフィール編集", edit_user_path %></p>
   <% end %>
 </div>
+<!--新規投稿フォーム-->
+<%= render 'books/booklist', book: @book %>
 
 <!-- 1ユーザーの投稿一覧 -->
 <h1>Users</h1>
