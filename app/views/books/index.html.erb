@@ -1,4 +1,6 @@
-<!--book.index.html-->
+<!--book一覧ページ-->
+<!--新規投稿フォーム-->
+<!--ユーザー詳細-->
 
 <div class="container-fluid">
   <div class="row">
@@ -9,7 +11,6 @@
     <div class="col-md-8" style="height:400px;">
       <h1>Books</h1>
       <!--ここから-->
-
         <table class="table">
           <thead>
             <tr>
@@ -22,8 +23,6 @@
             <% @books.each do |book| %>
           <tbody>
             <tr>
-
-              
               <th scope="row"><%= image_tag book.user.get_profile_image(50,50) %></th>
               <td><%= link_to book.title,book_path(book.id) %></td>
               <td><%= book.body %></td>
@@ -33,14 +32,10 @@
                 <% end %>
             </tr>
             <% end %>
-                
-
             </tr>
           </tbody>
         </table>
-        
-        <!--ここまで-->
     </div>
   </div>
 </div>
-
+<!--ここまで-->
