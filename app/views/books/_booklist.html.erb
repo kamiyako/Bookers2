@@ -1,5 +1,5 @@
 <!--新規投稿フォーム-->
-<h1>New Book</h1>
+<h1 class="mt-3">New Book</h1>
 <!--@book→book-->
 <%= form_with model: book, url: '/books', method: :post do |f| %>
   <h4>Title</h4>
@@ -8,6 +8,5 @@
   <%= f.text_area :body %>
   <br>
   <%= f.submit 'Create Book' %>
-  
 <% end %>
 <!--新規投稿フォームend-->

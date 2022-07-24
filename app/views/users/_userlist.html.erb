@@ -1,9 +1,12 @@
 <!-- ユーザー詳細 -->
 <div>
-  <h3 ><%= user.name %></h3>
   <%= image_tag user.get_profile_image(100,100) %>
-  <h4>introduction</>
-  <p><%= user.introduction %></p>
+  <table class="table">
+  <thead class="thead-lignt">
+  <tr><th>Name</th><th><%= user.name %></th></tr>
+  <tr><td>introduction</td><td></td></tr>
+  <tr><td><%= user.introduction %></td><td></td></tr>
+  </table>
   <% if user == current_user %>
   <% end %>
 <%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary btn-block" do %>
