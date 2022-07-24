@@ -1,13 +1,13 @@
-<!--ユーザー一覧ページ-->
+<!--ユーザー一覧ページ(Users)-->
 
-<div class="container-fluid mt-5">
+
   <div class="row">
     <div class="col-md-4" style="height:400px;" >
       <h1>User info</h1>
       <!--ユーザー表示-->
       <%= render 'users/userlist', user: @user %>
       <!--新規投稿フォーム-->
-      <%= render 'books/booklist', book: @book %>
+      <%= render 'books/booklist', book: @booknew %>
        <!--ここから-->
     </div>
     <div class="col-md-8" style="height:400px;">
@@ -34,5 +34,5 @@
         </table>
     </div>
   </div>
-</div>
+
 <!--ここまで-->

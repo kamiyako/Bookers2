@@ -2,8 +2,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @book = Book.new
-    @books = @user.books
+    @booknew = Book.new
+
+    @books = @user.books.order('created_at DESC')
+
+
   end
 
   def edit
@@ -23,6 +26,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
+    @booknew = Book.new
   end
 
 
