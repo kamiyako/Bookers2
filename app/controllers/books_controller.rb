@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  
+
   def new
     @book = Book.new
   end
@@ -18,6 +18,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @user = User.find(params[:id])
+    @user=current_user
 
   end
 
@@ -25,31 +26,31 @@ class BooksController < ApplicationController
     @book = Book.new
     @books = Book.all
     @books.order("id")
-    
+    @user=current_user
   end
-  
+
   def edit
-    @book = Book.find(params[:id]) 
+    @book = Book.find(params[:id])
   end
-  
+
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
     flash[:notice] = "Book was successfully updated."
-    redirect_to books_path(@book.id) 
+    redirect_to books_path(@book.id)
     else
     render :edit
     end
   end
-  
+
   def destroy
-    book = Book.find(params[:id]) 
-    if book.destroy 
+    book = Book.find(params[:id])
+    if book.destroy
     flash[:notice]="Book was successfully destroyed."
     redirect_to books_path
     end
   end
-  
+
     private
   # ストロングパラメータ
   def book_params

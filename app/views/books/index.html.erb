@@ -1,16 +1,17 @@
 <!--book一覧ページ-->
-<!--新規投稿フォーム-->
-<!--ユーザー詳細-->
 
-<div class="container-fluid">
+<div class="container-fluid mt-5">
   <div class="row">
     <div class="col-md-4" style="height:400px;" >
+      <h1>User info</h1>
+      <!--ユーザー詳細-->
+      <%= render 'users/userlist', user: @user %>
       <!--新規投稿フォーム-->
       <%= render 'booklist', book: @book %>
+      <!--ここから-->
     </div>
     <div class="col-md-8" style="height:400px;">
       <h1>Books</h1>
-      <!--ここから-->
         <table class="table">
           <thead>
             <tr>
@@ -24,7 +25,7 @@
           <tbody>
             <tr>
               <th scope="row"><%= image_tag book.user.get_profile_image(50,50) %></th>
-              <td><%= link_to book.title,book_path(book.id) %></td>
+              <td><%= link_to book.title, book_path(book.id) %></td>
               <td><%= book.body %></td>
                 <% if book.user == current_user %>
               <td><%= link_to 'Edit', edit_book_path(book.id) %></td>
