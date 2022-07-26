@@ -1,16 +1,24 @@
 <!-- ユーザー詳細 -->
-<div>
+
+  <h2>User info</h2>
   <%= image_tag user.get_profile_image(100,100) %>
   <table class="table">
-  <thead class="thead-lignt">
-  <tr><th>Name</th><th><%= user.name %></th></tr>
-  <tr><td>introduction</td><td></td></tr>
-  <tr><td><%= user.introduction %></td><td></td></tr>
+    <tbody>
+      <tr><th>Name</th><th><%= user.name %></th></tr>
+      <tr><td>introduction</td><td></td></tr>
+      <tr><td><%= user.introduction %></td><td></td></tr>
+    </tbody>
   </table>
   <% if user == current_user %>
+    <%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary btn-block" do %>
+      <i class=" fas fa-user-cog"></i>
+    <% end %>
+  <% else %>
+    <%= link_to user_path(current_user.id), class:"btn btn-outline-secondary btn-block" do %>
+    <i class=" fas fa-user-cog"></i>
+    <% end %>
   <% end %>
-  <%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary btn-block" do %>
-  <i class="fas fa-user-cog"></i>
-  <% end %>
-</div>
+
+
+
 <!-- 1ユーザーの詳細end -->

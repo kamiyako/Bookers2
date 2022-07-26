@@ -8,24 +8,24 @@
   </ul>
 <% end %>
 <!--edit-->
-<h1 class="text-center mt-5">Editing Book</h1>
-
-<div class="row justify-content-center">
-
-<%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
-
-  <h4>Title</h4>
-  <%= f.text_field :title %>
+<div class="class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto"">
+  <div class="form">
+    <h1>Editing Book</h1>
   
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  
-  
-  <p><%= f.submit 'Update Book' %></p>
-  
-<% end %>
-</div>
-<div class="text-center">
-<!--show back-->
-<p><%= link_to "show", book_path(@book.id) %> | <%= link_to "back", books_path %></p>
+    <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
+    <div class="form-group">
+      <h4>Title</h4>
+      <%= f.text_field :title %>
+    </div>  
+    <div class="form-group">
+      <h4>Opinion</h4>
+      <%= f.text_area :body %>
+    </div>  
+      
+      <p><%= f.submit 'Update Book' %></p>
+      
+    <% end %>
+    <!--show back-->
+    <p><%= link_to "show", book_path(@book.id) %> | <%= link_to "back", books_path %></p>
+  </div>
 </div>
