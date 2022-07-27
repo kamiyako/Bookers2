@@ -1,7 +1,7 @@
 <!--book詳細(Book detail)ページ-->
 <div class="col-md-3">
       <!--ユーザー表示-->
-<%= render 'users/userlist', user: @user %>
+<%= render 'users/userlist', user: @book.user %>
       <!--新規投稿フォーム-->
 <%= render 'booklist', book: @booknew %>
 </div>
@@ -12,7 +12,11 @@
           
           <tbody>
             <tr>
-              <td><%= image_tag @book.user.get_profile_image(50,50) %><br><%= link_to @user.name, user_path(@user.id)%></td>
+              <td>
+                <%= link_to user_path(@book.user.id) do %>
+                  <%= image_tag @book.user.get_profile_image(50,50) %>
+                <% end %>
+                  <br><%= link_to @book.user.name, user_path(@book.user.id)%></td>
               <td>
                 <%= link_to @book.title, book_path(@book.id)%>
                 </td>
