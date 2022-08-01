@@ -22,6 +22,7 @@ before_action :ensure_correct_user, only:[:edit,:destroy]
   def show
     @booknew = Book.new
     @book = Book.find(params[:id])
+    @book_comment = BookComment.new
     @user=current_user
 
   end
